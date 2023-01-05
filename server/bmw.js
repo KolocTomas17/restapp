@@ -5,7 +5,6 @@ const cors = require("cors");
 const app = express();
 const PORT = 3000;
 
-const bookRouter = require("./routes/book");
 const bmwRouter = require("./routes/bmw");
 
 mongoose.connect(
@@ -20,6 +19,5 @@ app.use(morgan("dev"));
 app.use(cors());
 app.use(express.json());
 
-app.use("/book", bookRouter);
-app.use("/bmw", bmwRouter);
+app.use("/bmw", bookRouter);
 app.listen(PORT, () => console.log(`App is running on ${PORT}`));
